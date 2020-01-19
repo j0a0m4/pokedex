@@ -1,0 +1,31 @@
+div,
+ion-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+ion-toolbar {
+  padding-bottom: 10px;
+}
+
+#avatar {
+  height: auto;
+  width: 96px;
+}
+
+#name {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1rem;
+}
+#logo {
+  margin-top: 10px;
+  height: 8vh;
+}
+
+#pokeball {
+  height: auto;
+  width: 100px;
+}

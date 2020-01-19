@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      <ion-img id="logo" src="../../assets/Pokédex_logo.png"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="checkEmpty()">
+    <ion-img
+      id="pokeball"
+      src="../../assets/pokeball-people-pokemon-nintendo-video-game-gaming-gartoon-ball-512.png"
+    ></ion-img>
+  </div>
+  <ion-grid *ngIf="!checkEmpty()">
+    <ion-row>
+      <ion-col *ngFor="let pokemon of pokedex">
+        <ion-card>
+          <ion-item>
+            <ion-icon
+              (click)="onRemove(pokemon.id)"
+              slot="start"
+              name="close-circle-outline"
+            ></ion-icon>
+            <ion-label id="name">{{ pokemon.name }}</ion-label>
+            <ion-button fill="outline" slot="end">{{ pokemon.id }}</ion-button>
+          </ion-item>
+          <ion-card-content>
+            <ion-img id="avatar" [src]="pokemon.image"></ion-img>
+            <ion-label>Exp.: {{ pokemon.base_experience}}</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button
+    *ngIf="!checkEmpty()"
+    expand="full"
+    color="danger"
+    shape="round"
+    (click)="onReset()"
+    >Reset Pokedex</ion-button
+  >
+</ion-content>

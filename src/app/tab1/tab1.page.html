@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title (click)="clearInput()">
+      <ion-img
+        id="logo"
+        src="../../assets/International_Pokémon_logo.svg.png"
+      ></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div id="search">
+    <ion-searchbar
+      (keydown)="onKeydown($event)"
+      [(ngModel)]="pokemonVal"
+      placeholder="Search Pokemon"
+    ></ion-searchbar>
+    <ul>
+      <ion-button
+        color="medium"
+        shape="round"
+        fill="outline"
+        (click)="clearInput()"
+      >
+        Clear
+      </ion-button>
+      <ion-button
+        color="primary"
+        shape="round"
+        fill="outline"
+        (click)="onClick()"
+      >
+        Go
+      </ion-button>
+    </ul>
+  </div>
+  <app-pokecard *ngIf="pokemon" [pokemon]="pokemon"></app-pokecard>
+  <div>
+    <ion-img
+      id="pokeball"
+      src="../../assets/pokeball-people-pokemon-nintendo-video-game-gaming-gartoon-ball-512.png"
+      *ngIf="!pokemon"
+    ></ion-img>
+  </div>
+</ion-content>
